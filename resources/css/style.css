@@ -1,0 +1,63 @@
+body{
+	margin: 0;
+	background-image: linear-gradient(to top, #178B9C, #50E9E0);
+	background-repeat: no-repeat;
+	font-family: 'Muli', sans-serif;
+}
+
+header{
+	width: 100%;
+	text-align: center;
+	margin: 5% 0;
+}
+
+#main {
+	width: 70%;
+	background: #FFFFFF;
+	margin: 5% 15%;
+	border-radius: 15px;
+	padding: 15px;
+}
+
+#content {
+	width: 95%;
+	margin: 2.5%;
+}
+
+#content h2{
+	margin: 2% 0 ;
+	text-align: left;
+	font-size: 24px;
+}
+
+button  {
+	margin-top: 2%;
+	text-align: center;
+}
+
+#nextButton {
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+p{
+	text-align: left;
+}
+
+table, td, th {
+  border: 1px solid black;
+ border-collapse: collapse;
+}
+
+td, th {
+	padding: 5px;
+}
+
+table input {
+	margin: auto;
+	display: block;
+}
+

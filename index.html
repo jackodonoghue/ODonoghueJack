@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Questionnaire</title>
+	<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	<script type="text/javascript" async>
+		/*function loadOrgDet() {
+				document.getElementById('sec').innerHTML = 'Introduction';	
+				document.getElementById('questions').innerHTML = 'Name of the Organisation<br>	<input type="text" name="orgName" required><br><br>' +'Description of Organisation<br> <input type="text" name="orgDesc" required><br><br>' +
+					'Contact Number<br>	<input type="text" name="orgPhone" required><br><br> ' +
+					'<button id="nextButton" onclick="loadSec1()">Next Section</button>';	
+		}*/
+
+		function loadSec1() {
+			document.getElementById('sec').innerHTML = 'Introduction';
+			window.alert("hello");		
+		}
+
+		function loadSec2() {
+			document.getElementById('sec').innerHTML = '';
+			document.getElementById('tab').innerHTML ='<tr>	<th></th> <th>1</th> <th>2</th>	<th>3</th> <th>4</th> <th>5</th> </tr>' +
+					'<tr><td>I and/or my colleagues know where to get information to help us analyse the business case for consciously attracting people with disabilities as members</td>' +
+					'<td><input type="radio" name="ver1"></td><td> <input type="radio" name="ver1"></td><td><input type="radio" name="ver1"></td>' +
+					'<td><input type="radio" name="ver1"></td>	<td><input type="radio" name="ver1"></td></tr>' + 
+					'<tr><td>I/my colleagues have researched the scope for increasing the participation of the broader community, in particular people with disabilities</td>' + 
+					'<td><input type="radio" name="ver2"></td><td><input type="radio" name="ver2"></td> <td><input type="radio" name="ver2"></td>' +
+					'<td><input type="radio" name="ver2"></td> <td><input type="radio" name="ver2"></td></tr>' +
+					'<tr><td>I know of disability service providers that I could link with in the local community</td>' +
+					'<td><input type="radio" name="ver3"></td> <td><input type="radio" name="ver3"></td> <td><input type="radio" name="ver3"></td>' +
+					'<td><input type="radio" name="ver3"></td> <td><input type="radio" name="ver3"></td></tr>' +
+					'<tr><td>My colleagues and I inclusivize our services to provide for people with disabilities </td>' +
+					'<td><input type="radio" name="ver3"></td> <td><input type="radio" name="ver3"></td> <td><input type="radio" name="ver3"></td>' +
+					'<td><input type="radio" name="ver3"></td> <td><input type="radio" name="ver3"></td></tr>';
+		}
+	</script>
+</head>
+<body>
+	<header id="header">
+		<h1>Questionnaire</h1>
+	</header>
+	<div id="main">
+		<div id="content">
+			
+			<form id="questions">
+				<h2>Introduction</h2>
+
+				Name of the Organisation<br>	
+				<input type="text" name="orgName" required><br><br>
+				Description of Organisation<br> 
+				<input type="text" name="orgDesc" required><br><br>
+				Contact Number<br>	<input type="text" name="orgPhone" required><br><br>
+				
+				<p>Please consider the following questions and identify your level of agreement with the statement <br> <br>
+				5. Strongly agree<br>
+				4. Agree<br>
+				3. Neutral/ Don’t know<br>
+				2. Disagree<br> 1. Strongly disagree<br><br></p>
+
+				<h2>Verification</h2>
+
+				<table id="verification">
+					<tr>	
+						<th></th> 
+						<th>1</th> 
+						<th>2</th>	
+						<th>3</th> 
+						<th>4</th> 
+						<th>5</th> 
+					</tr>
+					
+					<tr>
+						<td>I and/or my colleagues know where to get information to help us analyse the business case for consciously attracting people with disabilities as members</td>
+						<td><input type="radio" name="ver1" required></td>
+						<td> <input type="radio" name="ver1"></td>
+						<td><input type="radio" name="ver1"></td>
+						<td><input type="radio" name="ver1"></td>	
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+
+					<tr>	
+						<td>I/my colleagues have researched the scope for increasing the participation of the broader community, in particular people with disabilities</td>
+						<td><input type="radio" name="ver2" required></td>
+						<td><input type="radio" name="ver2"></td> 
+						<td><input type="radio" name="ver2"></td>
+						<td><input type="radio" name="ver2"></td> 
+						<td><input type="radio" name="ver2"></td>
+					</tr>
+					
+					<tr>
+						<td>I know of disability service providers that I could link with in the local community</td>
+						<td><input type="radio" name="ver3" required></td> 
+						<td><input type="radio" name="ver3"></td> 
+						<td><input type="radio" name="ver3"></td>
+						<td><input type="radio" name="ver3"></td> 
+						<td><input type="radio" name="ver3"></td>
+					</tr>
+					
+					<tr>
+						<td>My colleagues and I inclusivize our services to provide for people with disabilities</td>
+						<td><input type="radio" name="ver4" required></td> 	
+						<td><input type="radio" name="ver4"></td> 
+						<td><input type="radio" name="ver4"></td>
+						<td><input type="radio" name="ver4"></td> 	
+						<td><input type="radio" name="ver4"></td>
+					</tr>			
+				</table>
+
+				<h2>Value Proposition</h2>
+
+				<table id="proposition">
+					<tr>	
+						<th></th> 
+						<th>1</th> 
+						<th>2</th>	
+						<th>3</th> 
+						<th>4</th> 
+						<th>5</th> 
+					</tr>
+
+					<tr>
+						<td>My colleagues and I have a significant contribution to make to the quality of life of people in our community, including people with disabilities</td>
+						<td><input type="radio" name="ver1" required></td> 	
+						<td><input type="radio" name="ver1"></td> 
+						<td><input type="radio" name="ver1"></td>
+						<td><input type="radio" name="ver1"></td> 	
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+
+					<tr>
+						<td>My colleagues and I have the scope to improve opportunities for participation in fitness activities for people living in, or visiting our community, including people with disabilities</td>
+						<td><input type="radio" name="ver2" required></td> 	
+						<td><input type="radio" name="ver2"></td> 
+						<td><input type="radio" name="ver2"></td>
+						<td><input type="radio" name="ver2"></td> 	
+						<td><input type="radio" name="ver2"></td>
+					</tr>
+
+					<tr>
+						<td>The benefits of increasing our UniversAbility  to increase participation are clear</td>
+						<td><input type="radio" name="ver4" required></td> 	
+						<td><input type="radio" name="ver4"></td> 
+						<td><input type="radio" name="ver4"></td>
+						<td><input type="radio" name="ver4"></td> 	
+						<td><input type="radio" name="ver4"></td>
+					</tr>
+
+					<tr>
+						<td>My colleagues and I play a major role in providing health services to the entire community, including people with disabilities</td>
+						<td><input type="radio" name="ver5" required></td> 	
+						<td><input type="radio" name="ver5"></td> 
+						<td><input type="radio" name="ver5"></td>
+						<td><input type="radio" name="ver5"></td> 	
+						<td><input type="radio" name="ver5"></td>
+					</tr>
+
+					<tr>
+						<td>The UniversAbility  of our fitness services increases the job satisfaction and turnover of my staff</td>
+						<td><input type="radio" name="ver6" required></td> 	
+						<td><input type="radio" name="ver6"></td> 
+						<td><input type="radio" name="ver6"></td>
+						<td><input type="radio" name="ver6"></td> 	
+						<td><input type="radio" name="ver6"></td>
+					</tr>									
+				</table>
+
+				<h2>Vision</h2>
+
+				<table id="vision">
+					<tr>	
+						<th></th> 
+						<th>1</th> 
+						<th>2</th>	
+						<th>3</th> 
+						<th>4</th> 
+						<th>5</th> 
+					</tr>
+					
+					<tr>
+						<td>My colleagues and I envision ourselves as leaders of cultural change</td>
+						<td><input type="radio" name="ver1" required></td>
+						<td> <input type="radio" name="ver1"></td>
+						<td><input type="radio" name="ver1"></td>
+						<td><input type="radio" name="ver1"></td>	
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+				</table>
+
+				<p>Which of the following statements best describes your situation within your organisation <b><i>(Please select one)</i></b></p>
+
+				<table>
+					<tr>
+						<td>I and/or my colleagues have identified set targets for increasing the UniversAbility  of our services and are putting strategies in place to achieve these goals</td>
+						<td><input type="radio" name="ver1" required></td>
+					</tr>
+
+					<tr>
+						<td>I and/or my colleagues have identified scope for increasing the UniversAbility  of our services</td>
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+
+					<tr>
+						<td>I THINK there may be scope for inclusivizing our services but am not sure </td>
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+
+					<tr>
+						<td>I have never considered inclusivizing our services until now</td>
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+
+					<tr>
+						<td>I don’t think inclusivizing our services, in particular for people with disabilities, is really an option for us but won’t rule it out completely until it has been fully explored</td>
+						<td><input type="radio" name="ver1"></td>
+					</tr>
+				</table>
+
+				<h2>Philosophy</h2>
+
+				<ol>
+					<li>
+						Does your organisation have stated ideals in your strategic plan or other management documents which relate UniversAbility  of your services?  <br><br>
+						
+						Yes<input type="radio" name="phil1" required><br>
+						No<input type="radio" name="phil1">
+					</li><br>
+
+					<li>
+						Do you think an inclusive philosophy is a lived experience by:<br><br>
+						
+						<ol type="a">
+							<li>Management<input type="radio" name="phil2" required></li>
+							<li>Staff<input type="radio" name="phil2"></li>
+							<li>Customers<input type="radio" name="phil2"></li>
+						</ol>
+					</li><br>
+				</ol>
+
+				<h2>Policy</h2>
+
+				<ol>
+					<li>
+						Does your charging policy account for the varied needs of your customers? E.g. No charge for personal assistants<br><br>
+						
+						Yes<input type="radio" name="pol1" required><br>
+						No<input type="radio" name="pol1">
+					</li><br>
+
+					<li>
+						Do you track and monitor the proportion of your club members who experience disabilities?<br><br>
+						
+						Yes<input type="radio" name="pol2" required><br>
+						No<input type="radio" name="pol2">
+					</li><br>
+
+					<li>
+						Do you track and monitor the proportion of your club members who experience disabilities?<br><br>
+						
+						Yes<input type="radio" name="pol3" required><br>
+						No<input type="radio" name="pol3">
+					</li><br>
+
+					<li>
+						Have you a budget allocated to:
+							<ol type="a">
+								<li>
+									increasing the UniversAbility  of your services? (eg. facilities, equipment and staff training)<br><br>
+
+									Yes<input type="radio" name="pol4" required><br>
+									No<input type="radio" name="pol4"><br>
+									Not needed because  equipment is already fully accessible<input type="radio" name="pol4">
+								</li><br>
+
+								<li>
+									increasing the UniversAbility  of your policies? <br><br>
+
+									Yes<input type="radio" name="pol5" required><br>
+									No<input type="radio" name="pol5">
+								</li><br>
+
+								<li>
+									Are you familiar with the national legislation that relates to disability service provision?<br><br> 
+
+									Yes<input type="radio" name="pol6" required><br>
+									No<input type="radio" name="pol6">
+								</li><br>
+							</ol>
+					</li>
+				</ol>
+
+				<h2>Processes</h2>
+
+				<ol>
+					<li>
+						Do you engage with disability groups in your local community?
+						<ul>
+									Yes<input type="radio" name="pro1" required><br>
+									No<input type="radio" name="pro1">
+						</ul>
+					</li><br>
+
+					<li>
+						Have you forged any alliance/partnership with any disability organisation?
+						<ul>
+									Yes<input type="radio" name="pro2" required><br>
+									No<input type="radio" name="pro2">
+						</ul>
+					</li><br>
+
+					<li>
+						Have you or your staff embraced any assistive technologies (E.g. Assist-Mi app)?
+						<ul>
+									Yes<input type="radio" name="pro3" required><br>
+									No<input type="radio" name="pro3">
+						</ul>
+					</li><br>
+
+					<li>
+						Have you or your colleagues undertaken any research on Inclusivizing your service?
+						<ul>
+									Yes<input type="radio" name="pro4" required><br>
+									No<input type="radio" name="pro4">
+						</ul>
+					</li><br>
+
+					<li>
+						Do you encourage your staff to engage in customer satisfaction conversations with different user groups?
+						<ul>
+									Yes<input type="radio" name="pro5" required><br>
+									No<input type="radio" name="pro5">
+						</ul>
+					</li><br>
+				</ol>
+
+				<h2>Perception</h2>
+				<ol>
+					<li>
+						Do you gather information from your users on their beliefs about fitness being a fundamental right for all?
+						<ul>
+									Yes<input type="radio" name="per1" required><br>
+									No<input type="radio" name="per1">
+						</ul>
+					</li><br>
+
+					<li>
+						Do you gather information from people who do NOT use your facility on fitness being a fundamental right for all?
+						<ul>
+									Yes<input type="radio" name="per2" required><br>
+									No<input type="radio" name="per2">
+						</ul>
+					</li><br>
+				</ol>
+
+				<h2>Programmes</h2>
+
+				<ol>
+					<li>
+						Do you and your staff provide programmes specifically for people with disabilities?<br><br>
+							Yes<input type="radio" name="pro1" required><br>
+							No<input type="radio" name="pro1">
+					</li><br>
+					
+				
+				If Yes please complete the table below	<br><br>	
+
+				<table>
+					<tr>
+						<th rowspan="2">Disability Category</th>
+						<th width="10">YES</th>
+					</tr>
+					<tr>
+						<th>Type(<i>Segregated or integrated</i>)</th>
+					</tr>
+					<tr>
+						<td>Physical disabilities</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+					<tr>						
+						<td>Intellectual disabilities</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+					<tr>						
+						<td>Sensory disabilities</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+					<tr>						
+						<td>Mental health difficulties</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+				</table>
+				
+				<li>
+					Do people with disabilities use the gym, pool, or participate in group activities etc. alongside other members? 
+					<br><br>
+					
+					Yes<input type="radio" name="pro1" required><br>
+					No<input type="radio" name="pro1">
+				</li><br>
+
+				<table>
+					<tr>
+						<th>Disability Category</th>
+						<th width="10">YES</th>
+					</tr>
+					<tr>
+						<td>Physical disabilities</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+					<tr>						
+						<td>Intellectual disabilities</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+					<tr>						
+						<td>Sensory disabilities</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+					<tr>						
+						<td>Mental health difficulties</td>
+						<td><input type="checkbox" name="pro2" ></td>
+					</tr>
+				</table>
+			</ol>
+
+			<h2>People</h2>
+
+			<ol>
+				<li>
+					Have you or any of your staff/volunteers had training that facilitates the inclusion of people with disabilities?
+					<br>
+					<ol type="a">
+						<li>
+						Operational (teaching/instructional staff)<br><br>
+							Yes<input type="radio" name="peo1" required><br>
+							No<input type="radio" name="peo1">
+						</li><br>
+
+						<li>
+							Management<br><br>
+								Yes<input type="radio" name="peo2" required><br>
+								No<input type="radio" name="peo2">
+						</li><br>
+
+						<li>
+							Front of house<br><br>
+								Yes<input type="radio" name="peo3" required><br>
+								No<input type="radio" name="peo3">
+						</li><br>
+
+						<li>
+							Stakeholders/ contracted staff<br><br>
+								Yes<input type="radio" name="peo4" required><br>
+								No<input type="radio" name="peo4">
+						</li><br>
+					</ol>					
+				</li>
+
+				<li>
+					Are people with disabilities employed by your organisation and/or represented on your steering committee/ management committee/ board of management etc.?<br><br>
+						Yes<input type="radio" name="peo5" required><br>
+						No<input type="radio" name="peo5">
+				</li><br>
+
+				<li>
+					Is there a member of staff allocated as a liaison/point person for customers with disabilities?<br><br>
+						Yes<input type="radio" name="peo6" required><br>
+						No<input type="radio" name="peo6">
+				</li><br>
+			</ol>
+
+			<h2>Physical Access/Place</h2>
+
+			<ol>
+				<li>
+					Have you or your colleagues carried out an audit to evaluate the UniversAbility  of your facility  <br><br>
+						Yes<input type="radio" name="phy1" required><br>
+						No<input type="radio" name="phy1">					
+				</li>
+
+				<li>
+					Does your facility( or the facility you use) consider the following disabilities when evaluating UniversAbility :<br><br>
+						Yes<input type="radio" name="phy1" required><br>
+						No<input type="radio" name="phy1">	
+
+					<table>
+						<tr>
+							<th>Disability Category</th>
+							<th>YES</th>
+						</tr>
+						<tr>
+							<td>Intellectual disabilities</td>
+							<td><input type="checkbox" name="phy2" ></td>
+						</tr>
+						<tr>
+							<td>Sensory disabilities</td>
+							<td><input type="checkbox" name="phy2" ></td>
+						</tr>
+						<tr>
+							<td>Physical disabilities</td>
+							<td><input type="checkbox" name="phy2" ></td>
+						</tr>
+						<tr>
+							<td>Mental health difficulties</td>
+							<td><input type="checkbox" name="phy2" ></td>
+						</tr>
+					</table>				
+				</li>
+			</ol>
+
+			<h2>Promotion</h2>
+
+			<ol>
+				<li>
+					Is your promotional material inclusive of people with disabilities?  <br><br>
+						Yes<input type="radio" name="prom1" required><br>
+						No<input type="radio" name="prom1">					
+				</li>
+
+				<li>
+					Have you or your colleagues/staff developed any promotional materials with the aim of attracting people with disabilities?<br><br>
+						Yes<input type="radio" name="prom2" required><br>
+						No<input type="radio" name="prom2">					
+				</li>
+			</ol>
+				<button id="nextButton" onclick="loadSec1()">Next Section</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
