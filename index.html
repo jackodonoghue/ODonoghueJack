@@ -30,27 +30,37 @@
 			//Calculate score of section 5
 			calcPol();
 
+			//Calculate score of section 6
+			calcProc();
+
+			//Calculate score of section 7
+			calcPer();
+
+			//Calculate score of section 8			
+			calcProg();
+
+			//Calculate score of section 9
+			calcPeop();
+
+			//Calculate score of section 10
+			calcPhys();
+
+			//Calculate score of section 11
+			calcProm();
+
 			localStorage.setItem('scores', JSON.stringify(scores));
+
+			window.location.href = "scoreScreen.html";
 		}
 
 		function calcVer() {
 			var score = 0;
 
 			for(var i=1; i <= 4; i++) {
-				if(document.getElementsByName('ver' + i)[0].checked){
-					score += 1;
-				}
-				else if(document.getElementsByName('ver' + i)[1].checked){
-					score += 2;
-				}
-				else if(document.getElementsByName('ver' + i)[2].checked){
-					score += 3;
-				}
-				else if(document.getElementsByName('ver' + i)[3].checked){
-					score += 4;
-				}
-				else{
-					score += 5;
+				for(var j = 0; j < 5; j++) {					
+					if(document.getElementsByName('ver' + i)[j].checked){
+						score += j + 1;
+					}
 				}
 			}
 			//
@@ -63,20 +73,10 @@
 			var score = 0;
 
 			for(var i=1; i <= 5; i++) {
-				if(document.getElementsByName('prop' + i)[0].checked){
-					score += 1;
-				}
-				else if(document.getElementsByName('prop' + i)[1].checked){
-					score += 2;
-				}
-				else if(document.getElementsByName('prop' + i)[2].checked){
-					score += 3;
-				}
-				else if(document.getElementsByName('prop' + i)[3].checked){
-					score += 4;
-				}
-				else{
-					score += 5;
+				for(var j = 0; j < 5; j++) {					
+					if(document.getElementsByName('prop' + i)[j].checked){
+						score += j + 1;
+					}
 				}
 			}
 			//
@@ -89,20 +89,10 @@
 			var score = 0;
 
 			for(var i=1; i <= 2; i++) {
-				if(document.getElementsByName('vis' + i)[0].checked){
-					score += 1;
-				}
-				else if(document.getElementsByName('vis' + i)[1].checked){
-					score += 2;
-				}
-				else if(document.getElementsByName('vis' + i)[2].checked){
-					score += 3;
-				}
-				else if(document.getElementsByName('vis' + i)[3].checked){
-					score += 4;
-				}
-				else{
-					score += 5;
+				for(var j = 0; j < 5; j++) {					
+					if(document.getElementsByName('vis' + i)[j].checked){
+						score += j + 1;
+					}
 				}
 			}
 			//
@@ -141,6 +131,100 @@
 			//Add to total score
 			//
 			scores.push([5, score]);
+		}
+
+		function calcProc() {
+			var score = 0;
+
+			for(var i=1; i <= 5; i++) {
+				if(document.getElementsByName('pro' + i)[0].checked)
+					score += 10;
+			}
+			//
+			//Add to total score
+			//
+			scores.push([6, score]);
+		}
+
+		function calcPer() {
+			var score = 0;
+
+			for(var i=1; i <= 2; i++) {
+				if(document.getElementsByName('per' + i)[0].checked)
+					score += 10;
+			}
+			//
+			//Add to total score
+			//
+			scores.push([7, score]);
+		}
+
+		function calcProg() {
+			var score = 0;
+
+			if(document.getElementsByName('prog1')[0].checked) {
+				for(var i=0; i < 4; i++) {
+					if(document.getElementsByName('prog2')[i].checked)
+						score += 10;					
+				}	
+			}
+			if(document.getElementsByName('prog3')[0].checked) {
+				for(var i=0; i < 4; i++) {
+					if(document.getElementsByName('prog4')[i].checked)
+						score += 10;					
+				}	
+			}			
+			//
+			//Add to total score
+			//
+			scores.push([8, score]);
+		}
+
+		function calcPeop() {
+			var score = 0;
+
+			for(var i=1; i <= 6; i++) {					
+				if(document.getElementsByName('peo' + i)[0].checked){
+					score += 10;
+				}
+			}
+			//
+			//Add to total score
+			//
+			scores.push([9, score]);
+		}
+
+		function calcPhys() {
+			var score = 0;
+
+			if(document.getElementsByName('phy1')[0].checked) {
+				score += 10;
+			}
+
+			for(var i=0; i < 4; i++) {				
+				if(document.getElementsByName('phy2')[i].checked){
+					score += 10;
+				}
+			}
+			//
+			//Add to total score
+			//
+			scores.push([10, score]);
+		}
+
+		function calcProm() {
+			var score = 0;
+
+			if(document.getElementsByName('prom1')[0].checked) {
+				score += 10;
+			}
+			if(document.getElementsByName('prom2')[0].checked) {
+				score += 10;
+			}
+			//
+			//Add to total score
+			//
+			scores.push([11, score]);
 		}
 	</script>
 </head>
@@ -463,8 +547,8 @@
 				<ol>
 					<li>
 						Do you and your staff provide programmes specifically for people with disabilities?<br><br>
-							Yes<input type="radio" name="pro1" required><br>
-							No<input type="radio" name="pro1">
+							Yes<input type="radio" name="prog1" required><br>
+							No<input type="radio" name="prog1">
 					</li><br>
 					
 				
@@ -480,19 +564,19 @@
 					</tr>
 					<tr>
 						<td>Physical disabilities</td>
-						<td><input type="checkbox" name="pro2" ></td>
+						<td><input type="checkbox" name="prog2" ></td>
 					</tr>
 					<tr>						
 						<td>Intellectual disabilities</td>
-						<td><input type="checkbox" name="pro2" ></td>
+						<td><input type="checkbox" name="prog2" ></td>
 					</tr>
 					<tr>						
 						<td>Sensory disabilities</td>
-						<td><input type="checkbox" name="pro2" ></td>
+						<td><input type="checkbox" name="prog2" ></td>
 					</tr>
 					<tr>						
 						<td>Mental health difficulties</td>
-						<td><input type="checkbox" name="pro2" ></td>
+						<td><input type="checkbox" name="prog2" ></td>
 					</tr>
 				</table>
 				
@@ -500,8 +584,8 @@
 					Do people with disabilities use the gym, pool, or participate in group activities etc. alongside other members? 
 					<br><br>
 					
-					Yes<input type="radio" name="pro3" required><br>
-					No<input type="radio" name="pro3">
+					Yes<input type="radio" name="prog3" required><br>
+					No<input type="radio" name="prog3">
 				</li><br>
 
 				<table>
@@ -511,19 +595,19 @@
 					</tr>
 					<tr>
 						<td>Physical disabilities</td>
-						<td><input type="checkbox" name="pro4" ></td>
+						<td><input type="checkbox" name="prog4" ></td>
 					</tr>
 					<tr>						
 						<td>Intellectual disabilities</td>
-						<td><input type="checkbox" name="pro4" ></td>
+						<td><input type="checkbox" name="prog4" ></td>
 					</tr>
 					<tr>						
 						<td>Sensory disabilities</td>
-						<td><input type="checkbox" name="pro4" ></td>
+						<td><input type="checkbox" name="prog4" ></td>
 					</tr>
 					<tr>						
 						<td>Mental health difficulties</td>
-						<td><input type="checkbox" name="pro4" ></td>
+						<td><input type="checkbox" name="prog4" ></td>
 					</tr>
 				</table>
 			</ol>
@@ -585,8 +669,6 @@
 
 				<li>
 					Does your facility( or the facility you use) consider the following disabilities when evaluating UniversAbility :<br><br>
-						Yes<input type="radio" name="phy2" required><br>
-						No<input type="radio" name="phy2">	
 
 					<table>
 						<tr>
@@ -595,19 +677,19 @@
 						</tr>
 						<tr>
 							<td>Intellectual disabilities</td>
-							<td><input type="checkbox" name="phy3" ></td>
+							<td><input type="checkbox" name="phy2" ></td>
 						</tr>
 						<tr>
 							<td>Sensory disabilities</td>
-							<td><input type="checkbox" name="phy3" ></td>
+							<td><input type="checkbox" name="phy2" ></td>
 						</tr>
 						<tr>
 							<td>Physical disabilities</td>
-							<td><input type="checkbox" name="phy3" ></td>
+							<td><input type="checkbox" name="phy2" ></td>
 						</tr>
 						<tr>
 							<td>Mental health difficulties</td>
-							<td><input type="checkbox" name="phy3" ></td>
+							<td><input type="checkbox" name="phy2" ></td>
 						</tr>
 					</table>				
 				</li>
@@ -629,7 +711,7 @@
 				</li>
 			</ol>
 				<div id="but">
-					<button id="nextButton" onclick="">Next Section</button>
+					<button id="nextButton" onclick="calcScore()">Next Section</button>
 					<button id="prevButton" onclick="//nextSection()">Previous Section</button>	
 				</div>
 				
