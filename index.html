@@ -7,6 +7,32 @@
 	<script type="text/javascript" async>
 		var scores = [];
 
+		function fillDrop() {
+			var towns = [];
+
+			var selectList = document.getElementsByName('county');
+			var changeList = document.getElementsByName('town');
+			
+			if(selectList[0].options[selectList[0].selectedIndex].value == 'ker') {
+				window.alert("kerry");
+				towns.push('Killarney', 'Tralee', 'Dingle', 'Kenmare');
+
+				for (var i = 0; i < towns.length; i++) {
+				    var option = document.createElement("option");
+				    option.value = towns[i];
+				    option.text = towns[i];
+				}
+			}
+			if(selectList[0].options[selectList[0].selectedIndex].value == 'crk'){
+				window.alert("cork");
+				towns.push('Cork City', 'Ballincollig', 'Cobh', 'Glanmire');
+
+				for(index in towns) {
+				    changeList.options[index].Add(new Option(towns[index], index));
+				}
+			}
+		}
+
 		function calcScore() {
 			if(localStorage.getItem('scores'))
 			{
@@ -242,6 +268,17 @@
 				<input type="text" name="orgName" required><br><br>
 				Description of Organisation<br> 
 				<input type="text" name="orgDesc" required><br><br>
+
+				County<br>
+				<select name="county" class="sel" onchange="fillDrop();">
+				    <option value="ker">Kerry</option>
+				    <option value="crk">Cork</option>
+				</select><br><br>
+
+				Town<br>
+				<select name="town" class="sel">
+				</select><br><br>
+
 				Contact Number<br>	<input type="text" name="orgPhone" required><br><br>
 				
 				<p>
@@ -716,7 +753,7 @@
 				</div>
 				
 			</form>
-					<button id="nop" onclick="calcScore()">Next Section</button>
+					<button id="nop" onclick="fillDrop()">Next Section</button>
 		</div>
 	</div>
 </body>
