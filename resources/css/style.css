@@ -1,5 +1,6 @@
 body{
 	margin: 0;
+	padding: 0;	
 	background-image: linear-gradient(to top, #178B9C, #50E9E0);
 	background-repeat: no-repeat;
 	font-family: 'Muli', sans-serif;
@@ -12,9 +13,9 @@ header{
 }
 
 #main {
-	width: 70%;
+	width: 65%;
 	background: #FFFFFF;
-	margin: 5% 15%;
+	margin: 5% 17.5%;
 	border-radius: 15px;
 	padding: 15px;
 }
@@ -36,24 +37,17 @@ button  {
 }
 
 #but {
-margin: 2% 0 2% 60%;
-width: 30%;
+margin: 2% 40%;
+width: 20%;
 }
 
 #nextButton {
-    color: white;
+    color: #fff;
     border-radius: 4px;
-    padding: 5px;
+    padding: 10px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    background: rgb(66, 184, 221); /* this is a light blue */
-}
-
-#prevButton {
-    color: black;
-    border-radius: 4px;
-    padding: 5px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    background: white; 
+    background: rgb(66, 184, 221);
+    font-size: 1em; 
 }
 
 p{
@@ -76,5 +70,17 @@ table input {
 
 .sel, .sel option {
 	width: 130px;
+}
+
+#timer{
+	color: #fff;
+	position: fixed;
+	padding: 10px;
+	bottom: 2%;
+	right: 2%;
+	background-color: #FF4136; 
+	border-radius: 5px;
+	text-align: center;
+	margin: 0 2% 0 80%;
 }
 

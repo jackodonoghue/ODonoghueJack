@@ -6,31 +6,59 @@
 	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 	<script type="text/javascript" async>
 		var scores = [];
+		var timer = setTimeout(function () {
+			window.location.href = "timeout.html";
+		}, 600000);
+
+		//Display Timer
+		function startTimer(duration, display) {
+	    var timer = duration
+	    var minutes
+	    var seconds;
+
+	    setInterval(function () {
+	        minutes = parseInt(timer / 60, 10);
+	        seconds = parseInt(timer % 60, 10);
+
+	        minutes = minutes < 10 ? "0" + minutes : minutes;
+	        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+	        display.textContent = minutes + ":" + seconds;
+
+	      	  if (--timer < 0) {
+	      	      timer = duration;
+	     	  }
+	   		}, 1000);
+		}
+
+		window.onload = function () {
+		    var tenMinutes = 60 * 10,
+		        display = document.getElementById('timer');
+		    startTimer(tenMinutes, display);
+		};
 
 		function fillDrop() {
 			var towns = [];
 
-			var selectList = document.getElementsByName('county');
-			var changeList = document.getElementsByName('town');
+			var selectList = document.getElementById('countyList');
+			var townList = document.getElementById('townList');
 			
-			if(selectList[0].options[selectList[0].selectedIndex].value == 'ker') {
-				window.alert("kerry");
+			if(selectList.options[selectList.selectedIndex].value == 'ker') {
 				towns.push('Killarney', 'Tralee', 'Dingle', 'Kenmare');
 
-				for (var i = 0; i < towns.length; i++) {
-				    var option = document.createElement("option");
-				    option.value = towns[i];
-				    option.text = towns[i];
+				for(i in towns) {
+				    townList.options[townList.options.length] = new Option(towns[i], towns[i], false, false);
 				}
 			}
-			if(selectList[0].options[selectList[0].selectedIndex].value == 'crk'){
-				window.alert("cork");
+			if(selectList.options[selectList.selectedIndex].value == 'crk'){
 				towns.push('Cork City', 'Ballincollig', 'Cobh', 'Glanmire');
 
-				for(index in towns) {
-				    changeList.options[index].Add(new Option(towns[index], index));
+				for(i in towns) {
+				    townList.options[townList.options.length] = new Option(towns[i], towns[i], false, false);
 				}
 			}
+
+			townList.disabled = false;
 		}
 
 		function calcScore() {
@@ -270,13 +298,14 @@
 				<input type="text" name="orgDesc" required><br><br>
 
 				County<br>
-				<select name="county" class="sel" onchange="fillDrop();">
-				    <option value="ker">Kerry</option>
+				<select name="county" class="sel" id="countyList" onchange="fillDrop();">
+					<option value="defaut">-- Select Option --</option>
+				    <option value="ker" >Kerry</option>
 				    <option value="crk">Cork</option>
 				</select><br><br>
 
 				Town<br>
-				<select name="town" class="sel">
+				<select name="town" class="sel" id="townList" disabled>
 				</select><br><br>
 
 				Contact Number<br>	<input type="text" name="orgPhone" required><br><br>
@@ -748,13 +777,15 @@
 				</li>
 			</ol>
 				<div id="but">
-					<button id="nextButton" onclick="calcScore()">Next Section</button>
-					<button id="prevButton" onclick="//nextSection()">Previous Section</button>	
+					<button id="nextButton" onclick="calcScore()">Finish!</button>
 				</div>
 				
 			</form>
-					<button id="nop" onclick="fillDrop()">Next Section</button>
 		</div>
+	</div>
+
+	<div id="timer">
+		10:00
 	</div>
 </body>
 </html>
