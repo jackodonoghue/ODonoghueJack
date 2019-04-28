@@ -2,8 +2,226 @@
 <html>
 <head>
 	<title>Welcome!</title>
+	<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	<script type="text/javascript">
+		var quizScoresAsString = localStorage.getItem('scores');
+		var quizScores = JSON.parse(quizScoresAsString);
+		var totalScore = 0;
+
+		window.onload = function (){
+			document.getElementById("verificationID").innerHTML = getVerificationScore(); 
+
+			document.getElementById("valuePropID").innerHTML = getValuePropositionScore();
+
+			document.getElementById("visionID").innerHTML = getVisionScore();
+
+			document.getElementById("philosophyID").innerHTML = getPhilosophyScore();
+
+			document.getElementById("policyID").innerHTML = getPolicyScore();
+
+			document.getElementById("processesID").innerHTML = getProcessesScore();
+
+			document.getElementById("perceptionID").innerHTML = getPerceptionScore();
+
+			document.getElementById("programmesID").innerHTML = getProgrammesScore();
+
+			document.getElementById("peopleID").innerHTML = getPeopleScore();
+
+			document.getElementById("physicalAccessID").innerHTML = getPhysicalAccessScore();
+
+			document.getElementById("promotionID").innerHTML = getPromotionScore();
+
+			document.getElementById("totalScoreID").innerHTML = getTotalScore();
+		}
+
+		function getVerificationScore() {
+			if(quizScores[0][1] >= 16) {
+				return "Well done you are clearly being proactive in considering making your services more universal";
+			}
+			if(quizScores[0][1] >= 10 && quizScores[0][1] < 16) {
+				return "With a little more thought you will see more opportunities for increasing the universability of your services";
+			}
+			if(quizScores[0][1] >= 4 && quizScores[0][1] < 10) {
+				return "The face to face training session will be a great opportunity for you to get guidance on progressing the universability of your organisation";
+			}
+		}
+
+		function getValuePropositionScore() {
+			if(quizScores[1][1] >= 20) {
+				return "You have a very high level of appreciation of the mutual benefits for all stakeholders in an inclusive organisation";
+			}
+			if(quizScores[1][1] >= 12 && quizScores[1][1] < 20) {
+				return "You have some sense of the benefits of a universal organisation ";
+			}
+			if(quizScores[1][1] >= 5 && quizScores[1][1] < 12) {
+				return "The face to face training session will be a great opportunity for you to gain some perspective of the benefits of universability to your organisation and its members";
+			}
+		}
+
+		function getVisionScore() {
+			if(quizScores[2][1] >= 6) {
+				return "You can see an inclusive future for your organisation and its members, the challenge is now to ensure that your decisions and resource allocations make this happen";
+			}
+			if(quizScores[2][1] >= 2 && quizScores[2][1] < 6) {
+				return "The face to face session has great scope to convince you of the feasibility of promoting inclusion - just keep your mind open to the possibility";
+			}
+		}
+
+		function getPhilosophyScore() {
+			if(quizScores[3][1] >= 30) {
+				return "Your organisation’s value system is an inclusive one. Your challenge will be to safeguard this and promote this philosophy within the wider fitness sector";
+			}
+			else if(quizScores[3][1] == 20) {
+				return "While there is some openness to equity in your organisation the commitment is not yet wholly embraced by all. Belief systems within the organisation may be confused and possibly conflicting. It would be desirable to promote dialogue amongst your stakeholders around the topic of inclusion";
+			}
+			else {
+				return "The face to face training session will only be of value to progressing your universability if you are willing to challenge your belief system about access to fitness services being a fundamental ";
+			}
+		}
+
+		function getPolicyScore() {
+			if(quizScores[4][1] >= 40) {
+				return "Your intentions are very sound in respect of inclusion and you have the potential to be a high achiever in this respect";
+			}
+			else if(quizScores[4][1] >= 20 && quizScores[4][1] < 40) {
+				return "Your journey of making organisational policies inclusive has started well and this may be the catalyst for enhanced universability – if you are open to progressive change";
+			}
+			else if(quizScores[4][1] >= 10 && quizScores[4][1] < 20) {
+				return "Your policies are confused and possibly conflicting. Some guidance will be needed to bring greater coherency to your efforts to date";
+			}
+			else {
+				return "Universability is not something with which you have yet engaged, so the face to face training session will be an opportunity for significant learning in this respect";
+			}
+		}
+
+		function getProcessesScore() {
+			if(quizScores[5][1] >= 30) {
+				return "You are already a potential resource for people with disabilities in your community, as your networks are an essential element in the UFIT approach";
+			}
+			else if(quizScores[5][1] >= 10 && quizScores[5][1] < 20) {
+				return "You have made a positive start upon which your organisation can build sound relationships with people with disabilities. Unit three will offer you more ideas in respect of forging alliances with people with disabilities";
+			}
+			else {
+				return "You have great scope for learning during the face to face training session, once you have an open mind to the possibilities that an inclusive approach can offer";
+			}
+		}
+
+		function getPerceptionScore() {
+			if(quizScores[6][1] >= 10) {
+				return "As a listening organisation you have important information that can guide your journey towards universability. Your challenge is to interpret what is being said and to translate it into inclusive actions";
+			}
+			else {
+				return "Your organisation has yet to learn the power of dialogue as a means of providing desirable fitness services to all members of the community";
+			}
+		}
+
+		function getProgrammesScore() {
+			if(quizScores[7][1] >= 30) {
+				return "You have the potential to be a role model of provision in the fitness sector. Programming is the basic unit of service delivery – where this is inclusive, your relevance to the wider community is enhanced";
+			}
+			else if(quizScores[7][1] >= 10 && quizScores[7][1] < 30) {
+				return "You have made a positive start – you can use the questions here to reflect on how you can make more progress in this respect";
+			}
+			else {
+				return "You have great scope for learning during the face to face training session, once you have an open mind to the possibilities that an inclusive approach can offer";
+			}
+		}
+
+		function getPeopleScore() {
+			if(quizScores[8][1] >= 40) {
+				return "You have invested in your organisation’s most important asset. Your potential to offer inclusive services is vast. The challenge is to make sure that you optimally deploy this wisdom to make all aspects of your service provision truly inclusive";
+			}
+			else if(quizScores[8][1] >= 20 && quizScores[8][1] < 40) {
+				return "There is some scope within your organisation to promote universability principles and broaden your organisation’s relevance in the wider community ";
+			}
+			else if(quizScores[8][1] >= 10 && quizScores[8][1] < 20) {
+				return "Depending on the strength of influence of those with some perspective on inclusion, you may have scope to drive improvements from within. Consider the scope for repositioning those with training and knowledge in the area of inclusion to optimise their influence";
+			}
+			else {
+				return "Universability is not something with which you have engaged so the face to face training session will be an opportunity for significant learning in this respect";
+			}
+		}
+
+		function getPhysicalAccessScore() {
+			if(quizScores[9][1] >= 40) {
+				return "The facility is largely accessible and hence there is significant scope for promoting universability. ";
+			}
+			else if(quizScores[9][1] >= 20 && quizScores[9][1] < 40) {
+				return "While some aspects of your facility are accessible there is scope for enhancement. The face to face training session will offer you some suggestions for improvement here.";
+			}
+			else if(quizScores[9][1] >= 10 && quizScores[9][1] < 20) {
+				return "While you have made a start in the direction of universability there is considerable scope for improvements. ";
+			}
+			else {
+				return "The face to face training session will provide you with wonderful ideas for making small (and inexpensive) changes to enhance the universability of the facility.";
+			}
+		}
+
+		function getPromotionScore() {
+			if(quizScores[10][1] == 20) {
+				return "You have the potential to be a role model of provision in the fitness sector. Programming is the basic unit of service delivery – where this is inclusive, your relevance to the wider community is enhanced";
+			}
+			else if(quizScores[10][1] == 10) {
+				return "You have made a positive start – you can use the questions here to reflect on how you can make more progress in this respect";
+			}
+			else {
+				return "You have great scope for learning during the face to face training session, once you have an open mind to the possibilities that an inclusive approach can offer";
+			}
+		}
+
+		function getTotalScore() {
+			for(var i = 0; i < quizScores.length; i++) {
+				totalScore += quizScores[i][1]; 
+			}
+
+			if(totalScore >= 340) {
+				return "Your organisation is evidently committed to inclusion.  Your perspective will be most valuable at the face to face training session as both an advocate and a guide for inclusive fitness service provision. You are highly relevant in your community and hence the organisation is sustainable and will remain so once your current commitment is supported and enhanced over time";
+			}
+			else if(totalScore >= 245 && totalScore <= 339){
+				return "Your organisation is making genuine and meaningful efforts in the direction of universability.  However provision is probably patchy and inconsistent, which may cause some confusion among members and potential members. Promotion of inclusive opportunities as an organisational priority has the potential to broaden your relevance to an even greater number of community members.";
+			}
+			else if(totalScore >= 150 && totalScore <= 224) {
+				return "While some work is being done to enhance inclusive provision, there is scope for significant gains in this aspect. Building on what you are doing well and embracing new ideas will see your organisation make the transitions to inclusivity with some ease. The face to face training session will be a unique opportunity to learn from others in your sector.";
+			}
+			else {
+				return "The face to face training session will be of immense value to your organisation. An exciting challenge awaits as you move towards universability. It will take some time but the secret is to keep doing what you are doing well and gradually add other initiatives to make your services more inclusive. The face to face training session will lead to significant learning for your organisation. ";
+			}
+		}
+	</script>
 </head>
 <body>
+	<header id="header">
+		<h1>Questionnaire Complete!</h1>
+	</header>
+	<div id="main">
+		<div id="content">
+			<h2>Verification</h2>
+			<p id="verificationID"></p>
+			<h2>Value Propostion</h2>
+			<p id="valuePropID"></p>
+			<h2>Vision</h2>
+			<p id="visionID"></p>
+			<h2>Philosophy</h2>
+			<p id="philosophyID"></p>
+			<h2>Policy</h2>
+			<p id="policyID"></p>
+			<h2>Processes</h2>
+			<p id="processesID"></p>
+			<h2>Perception</h2>
+			<p id="perceptionID"></p>
+			<h2>Programmes</h2>
+			<p id="programmesID"></p>
+			<h2>People</h2>
+			<p id="peopleID"></p>
+			<h2>Physical Access/Place</h2>
+			<p id="physicalAccessID"></p>
+			<h2>Promotion</h2>
+			<p id="promotionID"></p>
 
+			<h2>Total Score</h2>
+			<p id="totalScoreID"></p>
+		</div>
+	</div>
 </body>
 </html>
