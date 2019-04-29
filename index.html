@@ -10,6 +10,11 @@
 			window.location.href = "timeout.html";
 		}, 600000);
 
+		function nextSec (currentSection, nextSection) {
+			document.getElementById(currentSection).style.display = "none";
+			document.getElementById(nextSection).style.display = "inline-block";
+		}
+
 		//Display Timer
 		function startTimer(duration, display) {
 	    var timer = duration
@@ -290,83 +295,97 @@
 		<div id="content">
 			
 			<form id="questions">
-				<h2>Introduction</h2>
+			<fieldset id="sec1">
+					<h2>Introduction</h2>
 
-				Name of the Organisation<br>	
-				<input type="text" name="orgName" required><br><br>
-				Description of Organisation<br> 
-				<input type="text" name="orgDesc" required><br><br>
+					Name of the Organisation<br>	
+					<input type="text" name="orgName" required><br><br>
+					Description of Organisation<br> 
+					<input type="text" name="orgDesc" required><br><br>
 
-				County<br>
-				<select name="county" class="sel" id="countyList" onchange="fillDrop();">
-					<option value="defaut">-- Select Option --</option>
-				    <option value="ker" >Kerry</option>
-				    <option value="crk">Cork</option>
-				</select><br><br>
+					County<br>
+					<select name="county" class="sel" id="countyList" onchange="fillDrop();">
+						<option value="defaut">-- Select Option --</option>
+					    <option value="ker" >Kerry</option>
+					    <option value="crk">Cork</option>
+					</select><br><br>
 
-				Town<br>
-				<select name="town" class="sel" id="townList" disabled>
-				</select><br><br>
+					Town<br>
+					<select name="town" class="sel" id="townList" disabled>
+					</select><br><br>
 
-				Contact Number<br>	<input type="text" name="orgPhone" required><br><br>
+					Contact Number<br>	<input type="text" name="orgPhone" required><br><br>
+
+					<div id="but">
+						<button id="nextButton" onclick="nextSec('sec1', 'sec2')">Next Section!</button>
+					</div>
+			</fieldset>
 				
-				<p>
-					Please consider the following questions and identify your level of agreement with the statement <br> <br>
-					5. Strongly agree<br>
-					4. Agree<br>
-					3. Neutral/ Don’t know<br>
-					2. Disagree<br> 
-					1. Strongly disagree<br><br>
-				</p>
+			<fieldset id="sec2">					
+					<p>
+						Please consider the following questions and identify your level of agreement with the statement <br> <br>
+						5. Strongly agree<br>
+						4. Agree<br>
+						3. Neutral/ Don’t know<br>
+						2. Disagree<br> 
+						1. Strongly disagree<br><br>
+					</p>
+					<h2>Verification</h2>
 
-				<h2>Verification</h2>
+					<table id="verification">
+						<tr>	
+							<th></th> 
+							<th>1</th> 
+							<th>2</th>	
+							<th>3</th> 
+							<th>4</th> 
+							<th>5</th> 
+						</tr>
+						
+						<tr>
+							<td>I and/or my colleagues know where to get information to help us analyse the business case for consciously attracting people with disabilities as members</td>
+							<td><input type="radio" name="ver1"  required></td>
+							<td> <input type="radio" name="ver1"></td>
+							<td><input type="radio" name="ver1"></td>
+							<td><input type="radio" name="ver1"></td>	
+							<td><input type="radio" name="ver1"></td>
+						</tr>
 
-				<table id="verification">
-					<tr>	
-						<th></th> 
-						<th>1</th> 
-						<th>2</th>	
-						<th>3</th> 
-						<th>4</th> 
-						<th>5</th> 
-					</tr>
+						<tr>	
+							<td>I/my colleagues have researched the scope for increasing the participation of the broader community, in particular people with disabilities</td>
+							<td><input type="radio" name="ver2" required></td>
+							<td><input type="radio" name="ver2"></td> 
+							<td><input type="radio" name="ver2"></td>
+							<td><input type="radio" name="ver2"></td> 
+							<td><input type="radio" name="ver2"></td>
+						</tr>
+						
+						<tr>
+							<td>I know of disability service providers that I could link with in the local community</td>
+							<td><input type="radio" name="ver3" required></td> 
+							<td><input type="radio" name="ver3"></td> 
+							<td><input type="radio" name="ver3"></td>
+							<td><input type="radio" name="ver3"></td> 
+							<td><input type="radio" name="ver3"></td>
+						</tr>
+						
+						<tr>
+							<td>My colleagues and I inclusivize our services to provide for people with disabilities</td>
+							<td><input type="radio" name="ver4" required></td> 	
+							<td><input type="radio" name="ver4"></td> 
+							<td><input type="radio" name="ver4"></td>
+							<td><input type="radio" name="ver4"></td> 	
+							<td><input type="radio" name="ver4"></td>
+						</tr>			
+					</table>
 					
-					<tr>
-						<td>I and/or my colleagues know where to get information to help us analyse the business case for consciously attracting people with disabilities as members</td>
-						<td><input type="radio" name="ver1"  required></td>
-						<td> <input type="radio" name="ver1"></td>
-						<td><input type="radio" name="ver1"></td>
-						<td><input type="radio" name="ver1"></td>	
-						<td><input type="radio" name="ver1"></td>
-					</tr>
+					<div id="but">
+						<button id="nextButton" onclick="nextSec('sec2', 'sec3')">Next Section!</button>
+					</div>
 
-					<tr>	
-						<td>I/my colleagues have researched the scope for increasing the participation of the broader community, in particular people with disabilities</td>
-						<td><input type="radio" name="ver2" required></td>
-						<td><input type="radio" name="ver2"></td> 
-						<td><input type="radio" name="ver2"></td>
-						<td><input type="radio" name="ver2"></td> 
-						<td><input type="radio" name="ver2"></td>
-					</tr>
-					
-					<tr>
-						<td>I know of disability service providers that I could link with in the local community</td>
-						<td><input type="radio" name="ver3" required></td> 
-						<td><input type="radio" name="ver3"></td> 
-						<td><input type="radio" name="ver3"></td>
-						<td><input type="radio" name="ver3"></td> 
-						<td><input type="radio" name="ver3"></td>
-					</tr>
-					
-					<tr>
-						<td>My colleagues and I inclusivize our services to provide for people with disabilities</td>
-						<td><input type="radio" name="ver4" required></td> 	
-						<td><input type="radio" name="ver4"></td> 
-						<td><input type="radio" name="ver4"></td>
-						<td><input type="radio" name="ver4"></td> 	
-						<td><input type="radio" name="ver4"></td>
-					</tr>			
-				</table>sca
+			</fieldset>
+
+			<fieldset id="sec3">
 
 				<h2>Value Proposition</h2>
 
@@ -425,7 +444,13 @@
 						<td><input type="radio" name="prop5"></td>
 					</tr>									
 				</table>
+				
+				<div id="but">
+						<button id="nextButton" onclick="nextSec('sec3', 'sec4')">Next Section!</button>
+					</div>
+			</fieldset>
 
+			<fieldset id="sec4">
 				<h2>Vision</h2>
 
 				<table id="vision">
@@ -477,6 +502,13 @@
 					</tr>
 				</table>
 
+				<div id="but">
+						<button id="nextButton" onclick="nextSec('sec4', 'sec5')">Next Section!</button>
+					</div>
+
+			</fieldset>
+
+			<fieldset id="sec5">
 				<h2>Philosophy</h2>
 
 				<ol>
@@ -498,53 +530,12 @@
 					</li><br>
 				</ol>
 
-				<h2>Policy</h2>
+				<div id="but">
+						<button id="nextButton" onclick="nextSec('sec5', 'sec6')">Next Section!</button>
+					</div>
+			</fieldset>
 
-				<ol>
-					<li>
-						Does your charging policy account for the varied needs of your customers? E.g. No charge for personal assistants<br><br>
-						
-						Yes<input type="radio" name="pol1" required><br>
-						No<input type="radio" name="pol1">
-					</li><br>
-
-					<li>
-						Do you track and monitor the proportion of your club members who experience disabilities?<br><br>
-						
-						Yes<input type="radio" name="pol2" required><br>
-						No<input type="radio" name="pol2">
-					</li><br>
-
-
-
-					<li>
-						Have you a budget allocated to:
-							<ol type="a">
-								<li>
-									increasing the UniversAbility  of your services? (eg. facilities, equipment and staff training)<br><br>
-
-									Yes<input type="radio" name="pol3" required><br>
-									No<input type="radio" name="pol3"><br>
-									Not needed because  equipment is already fully accessible<input type="radio" name="pol3">
-								</li><br>
-
-								<li>
-									increasing the UniversAbility  of your policies? <br><br>
-
-									Yes<input type="radio" name="pol4" required><br>
-									No<input type="radio" name="pol4">
-								</li><br>
-							</ol>
-					</li>
-
-					<li>
-						Are you familiar with the national legislation that relates to disability service provision?<br><br> 
-
-						Yes<input type="radio" name="pol5" required><br>
-						No<input type="radio" name="pol5">
-					</li><br>
-				</ol>
-
+			<fieldset id="sec6">
 				<h2>Processes</h2>
 
 				<ol>
@@ -589,6 +580,12 @@
 					</li><br>
 				</ol>
 
+				<div id="but">
+						<button id="nextButton" onclick="nextSec('sec6', 'sec7')">Next Section!</button>
+					</div>
+			</fieldset>
+
+			<fieldset id="sec7">
 				<h2>Perception</h2>
 				<ol>
 					<li>
@@ -608,6 +605,12 @@
 					</li><br>
 				</ol>
 
+				<div id="but">
+						<button id="nextButton" onclick="nextSec('sec7', 'sec8')">Next Section!</button>
+					</div>
+			</fieldset>
+				
+			<fieldset id="sec8">
 				<h2>Programmes</h2>
 
 				<ol>
@@ -678,107 +681,126 @@
 				</table>
 			</ol>
 
-			<h2>People</h2>
+					<div id="but">
+						<button id="nextButton" onclick="nextSec('sec8', 'sec9')">Next Section!</button>
+					</div>
+			</fieldset>
+				
+			<fieldset id="sec9">
+				<h2>People</h2>
 
-			<ol>
-				<li>
-					Have you or any of your staff/volunteers had training that facilitates the inclusion of people with disabilities?
-					<br>
-					<ol type="a">
-						<li>
-						Operational (teaching/instructional staff)<br><br>
-							Yes<input type="radio" name="peo1" required><br>
-							No<input type="radio" name="peo1">
-						</li><br>
+				<ol>
+					<li>
+						Have you or any of your staff/volunteers had training that facilitates the inclusion of people with disabilities?
+						<br>
+						<ol type="a">
+							<li>
+							Operational (teaching/instructional staff)<br><br>
+								Yes<input type="radio" name="peo1" required><br>
+								No<input type="radio" name="peo1">
+							</li><br>
 
-						<li>
-							Management<br><br>
-								Yes<input type="radio" name="peo2" required><br>
-								No<input type="radio" name="peo2">
-						</li><br>
+							<li>
+								Management<br><br>
+									Yes<input type="radio" name="peo2" required><br>
+									No<input type="radio" name="peo2">
+							</li><br>
 
-						<li>
-							Front of house<br><br>
-								Yes<input type="radio" name="peo3" required><br>
-								No<input type="radio" name="peo3">
-						</li><br>
+							<li>
+								Front of house<br><br>
+									Yes<input type="radio" name="peo3" required><br>
+									No<input type="radio" name="peo3">
+							</li><br>
 
-						<li>
-							Stakeholders/ contracted staff<br><br>
-								Yes<input type="radio" name="peo4" required><br>
-								No<input type="radio" name="peo4">
-						</li><br>
-					</ol>					
-				</li>
+							<li>
+								Stakeholders/ contracted staff<br><br>
+									Yes<input type="radio" name="peo4" required><br>
+									No<input type="radio" name="peo4">
+							</li><br>
+						</ol>					
+					</li>
 
-				<li>
-					Are people with disabilities employed by your organisation and/or represented on your steering committee/ management committee/ board of management etc.?<br><br>
-						Yes<input type="radio" name="peo5" required><br>
-						No<input type="radio" name="peo5">
-				</li><br>
+					<li>
+						Are people with disabilities employed by your organisation and/or represented on your steering committee/ management committee/ board of management etc.?<br><br>
+							Yes<input type="radio" name="peo5" required><br>
+							No<input type="radio" name="peo5">
+					</li><br>
 
-				<li>
-					Is there a member of staff allocated as a liaison/point person for customers with disabilities?<br><br>
-						Yes<input type="radio" name="peo6" required><br>
-						No<input type="radio" name="peo6">
-				</li><br>
-			</ol>
+					<li>
+						Is there a member of staff allocated as a liaison/point person for customers with disabilities?<br><br>
+							Yes<input type="radio" name="peo6" required><br>
+							No<input type="radio" name="peo6">
+					</li><br>
+				</ol>
 
-			<h2>Physical Access/Place</h2>
-
-			<ol>
-				<li>
-					Have you or your colleagues carried out an audit to evaluate the UniversAbility  of your facility  <br><br>
-						Yes<input type="radio" name="phy1" required><br>
-						No<input type="radio" name="phy1">					
-				</li>
-
-				<li>
-					Does your facility( or the facility you use) consider the following disabilities when evaluating UniversAbility :<br><br>
-
-					<table>
-						<tr>
-							<th>Disability Category</th>
-							<th>YES</th>
-						</tr>
-						<tr>
-							<td>Intellectual disabilities</td>
-							<td><input type="checkbox" name="phy2" ></td>
-						</tr>
-						<tr>
-							<td>Sensory disabilities</td>
-							<td><input type="checkbox" name="phy2" ></td>
-						</tr>
-						<tr>
-							<td>Physical disabilities</td>
-							<td><input type="checkbox" name="phy2" ></td>
-						</tr>
-						<tr>
-							<td>Mental health difficulties</td>
-							<td><input type="checkbox" name="phy2" ></td>
-						</tr>
-					</table>				
-				</li>
-			</ol>
-
-			<h2>Promotion</h2>
-
-			<ol>
-				<li>
-					Is your promotional material inclusive of people with disabilities?  <br><br>
-						Yes<input type="radio" name="prom1" required><br>
-						No<input type="radio" name="prom1">					
-				</li>
-
-				<li>
-					Have you or your colleagues/staff developed any promotional materials with the aim of attracting people with disabilities?<br><br>
-						Yes<input type="radio" name="prom2" required><br>
-						No<input type="radio" name="prom2">					
-				</li>
-			</ol>
 				<div id="but">
-					<button id="nextButton" onclick="calcScore()">Finish!</button>
-				</div>
+						<button id="nextButton" onclick="nextSec('sec9', 'sec10')">Next Section!</button>
+					</div>
+			</fieldset>
+			
+			<fieldset id="sec10">
+				<h2>Physical Access/Place</h2>
+
+				<ol>
+					<li>
+						Have you or your colleagues carried out an audit to evaluate the UniversAbility  of your facility  <br><br>
+							Yes<input type="radio" name="phy1" required><br>
+							No<input type="radio" name="phy1">					
+					</li>
+
+					<li>
+						Does your facility( or the facility you use) consider the following disabilities when evaluating UniversAbility :<br><br>
+
+						<table>
+							<tr>
+								<th>Disability Category</th>
+								<th>YES</th>
+							</tr>
+							<tr>
+								<td>Intellectual disabilities</td>
+								<td><input type="checkbox" name="phy2" ></td>
+							</tr>
+							<tr>
+								<td>Sensory disabilities</td>
+								<td><input type="checkbox" name="phy2" ></td>
+							</tr>
+							<tr>
+								<td>Physical disabilities</td>
+								<td><input type="checkbox" name="phy2" ></td>
+							</tr>
+							<tr>
+								<td>Mental health difficulties</td>
+								<td><input type="checkbox" name="phy2" ></td>
+							</tr>
+						</table>				
+					</li>
+				</ol>
+
+				<div id="but">
+						<button id="nextButton" onclick="nextSec('sec10', 'sec11')">Next Section!</button>
+					</div>
+			</fieldset>
+			
+			<fieldset id="sec11">
+				<h2>Promotion</h2>
+
+				<ol>
+					<li>
+						Is your promotional material inclusive of people with disabilities?  <br><br>
+							Yes<input type="radio" name="prom1" required><br>
+							No<input type="radio" name="prom1">					
+					</li>
+
+					<li>
+						Have you or your colleagues/staff developed any promotional materials with the aim of attracting people with disabilities?<br><br>
+							Yes<input type="radio" name="prom2" required><br>
+							No<input type="radio" name="prom2">					
+					</li>
+				</ol>
+					<div id="but">
+						<button id="nextButton" onclick="calcScore()">Finish!</button>
+					</div>
+			</fieldset>
 				
 			</form>
 		</div>

@@ -1,3 +1,8 @@
+html, body {
+    margin:0;
+    padding:0;
+}
+
 body{
 	margin: 0;
 	padding: 0;	
@@ -28,7 +33,7 @@ h1 {
 	width: 95%;
 	margin: 2.5%;
 }
-
+		
 #content h2{
 	margin: 2% 0 ;
 	text-align: left;
@@ -86,5 +91,16 @@ table input {
 	border-radius: 5px;
 	text-align: center;
 	margin: 0 2% 0 80%;
+}
+
+form {
+	width: 90%;
+	margin: auto;
+	border-radius: 5px;
+}
+
+#sec2, #sec3, #sec4, #sec5,
+#sec6, #sec7, #sec8, #sec9, #sec10, #sec11{
+	display: none;	
 }
 
