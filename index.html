@@ -10,26 +10,17 @@
 			window.location.href = "timeout.html";
 		}, 600000);
 
-		function nextSec (currentSection, nextSection) {
-			document.getElementById(currentSection).style.display = "none";
-			document.getElementById(nextSection).style.display = "inline-block";
-		}
-
 		//Display Timer
 		function startTimer(duration, display) {
 	    var timer = duration
 	    var minutes
 	    var seconds;
-
 	    setInterval(function () {
 	        minutes = parseInt(timer / 60, 10);
 	        seconds = parseInt(timer % 60, 10);
-
 	        minutes = minutes < 10 ? "0" + minutes : minutes;
 	        seconds = seconds < 10 ? "0" + seconds : seconds;
-
 	        display.textContent = minutes + ":" + seconds;
-
 	      	  if (--timer < 0) {
 	      	      timer = duration;
 	     	  }
@@ -64,6 +55,19 @@
 			}
 
 			townList.disabled = false;
+		}
+
+		function validPhoneNumber() {
+			var phoneNumberElement = document.getElementsByName('orgPhone');
+
+	        var phonePattern = phoneNumberElement.getAttribute("pattern");
+	        var re = new RegExp(pattern);
+	        if (!(re.test(phoneNumberElement.value))) {
+	            document.getElementById('phoneTooltip').style.display = "inline-block";
+	        }
+	        else{ 
+	        	window.alert("hello");
+	        }
 		}
 
 		function calcScore() {
@@ -295,8 +299,7 @@
 		<div id="content">
 			
 			<form id="questions">
-			<fieldset id="sec1">
-					<h2>Introduction</h2>
+						<h2>Introduction</h2>
 
 					Name of the Organisation<br>	
 					<input type="text" name="orgName" required><br><br>
@@ -314,14 +317,8 @@
 					<select name="town" class="sel" id="townList" disabled>
 					</select><br><br>
 
-					Contact Number<br>	<input type="text" name="orgPhone" required><br><br>
-
-					<div id="but">
-						<button id="nextButton" onclick="nextSec('sec1', 'sec2')">Next Section!</button>
-					</div>
-			</fieldset>
-				
-			<fieldset id="sec2">					
+					Contact Number<br>	<input type="text" name="orgPhone" pattern="/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/" required>
+					<span id="phoneTooltip">*Must be in form xxx-xxx-xxxx or (xxx)-xxx-xxxx</span>
 					<p>
 						Please consider the following questions and identify your level of agreement with the statement <br> <br>
 						5. Strongly agree<br>
@@ -379,15 +376,8 @@
 						</tr>			
 					</table>
 					
-					<div id="but">
-						<button id="nextButton" onclick="nextSec('sec2', 'sec3')">Next Section!</button>
-					</div>
 
-			</fieldset>
-
-			<fieldset id="sec3">
-
-				<h2>Value Proposition</h2>
+						<h2>Value Proposition</h2>
 
 				<table id="proposition">
 					<tr>	
@@ -445,12 +435,6 @@
 					</tr>									
 				</table>
 				
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec3', 'sec4')">Next Section!</button>
-					</div>
-			</fieldset>
-
-			<fieldset id="sec4">
 				<h2>Vision</h2>
 
 				<table id="vision">
@@ -502,14 +486,7 @@
 					</tr>
 				</table>
 
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec4', 'sec5')">Next Section!</button>
-					</div>
-
-			</fieldset>
-
-			<fieldset id="sec5">
-				<h2>Philosophy</h2>
+					<h2>Philosophy</h2>
 
 				<ol>
 					<li>
@@ -530,12 +507,6 @@
 					</li><br>
 				</ol>
 
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec5', 'sec6')">Next Section!</button>
-					</div>
-			</fieldset>
-
-			<fieldset id="sec6">
 				<h2>Processes</h2>
 
 				<ol>
@@ -580,12 +551,6 @@
 					</li><br>
 				</ol>
 
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec6', 'sec7')">Next Section!</button>
-					</div>
-			</fieldset>
-
-			<fieldset id="sec7">
 				<h2>Perception</h2>
 				<ol>
 					<li>
@@ -605,12 +570,6 @@
 					</li><br>
 				</ol>
 
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec7', 'sec8')">Next Section!</button>
-					</div>
-			</fieldset>
-				
-			<fieldset id="sec8">
 				<h2>Programmes</h2>
 
 				<ol>
@@ -681,12 +640,7 @@
 				</table>
 			</ol>
 
-					<div id="but">
-						<button id="nextButton" onclick="nextSec('sec8', 'sec9')">Next Section!</button>
-					</div>
-			</fieldset>
-				
-			<fieldset id="sec9">
+
 				<h2>People</h2>
 
 				<ol>
@@ -733,13 +687,7 @@
 					</li><br>
 				</ol>
 
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec9', 'sec10')">Next Section!</button>
-					</div>
-			</fieldset>
-			
-			<fieldset id="sec10">
-				<h2>Physical Access/Place</h2>
+					<h2>Physical Access/Place</h2>
 
 				<ol>
 					<li>
@@ -775,14 +723,7 @@
 						</table>				
 					</li>
 				</ol>
-
-				<div id="but">
-						<button id="nextButton" onclick="nextSec('sec10', 'sec11')">Next Section!</button>
-					</div>
-			</fieldset>
-			
-			<fieldset id="sec11">
-				<h2>Promotion</h2>
+					<h2>Promotion</h2>
 
 				<ol>
 					<li>
@@ -800,8 +741,6 @@
 					<div id="but">
 						<button id="nextButton" onclick="calcScore()">Finish!</button>
 					</div>
-			</fieldset>
-				
 			</form>
 		</div>
 	</div>
