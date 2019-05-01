@@ -40,6 +40,7 @@
 			var townList = document.getElementById('townList');
 			
 			if(selectList.options[selectList.selectedIndex].value == 'ker') {
+				
 				towns.push('Killarney', 'Tralee', 'Dingle', 'Kenmare');
 
 				for(i in towns) {
@@ -47,6 +48,7 @@
 				}
 			}
 			if(selectList.options[selectList.selectedIndex].value == 'crk'){
+				
 				towns.push('Cork City', 'Ballincollig', 'Cobh', 'Glanmire');
 
 				for(i in towns) {
@@ -57,16 +59,16 @@
 			townList.disabled = false;
 		}
 
-		function validPhoneNumber() {
+		function validPhoneNumber(phoneNumber) {
 			var phoneNumberElement = document.getElementsByName('orgPhone');
 
-	        var phonePattern = phoneNumberElement.getAttribute("pattern");
-	        var re = new RegExp(pattern);
-	        if (!(re.test(phoneNumberElement.value))) {
-	            document.getElementById('phoneTooltip').style.display = "inline-block";
+	        var phonePattern = "value.match(/\d/g).length===10;";
+	        var re = new RegExp(phonePattern);
+	        if (!(phoneNumber.match(/\d/g).length==10)) {
+				document.getElementById('phoneTooltip').style.display = "inline";
 	        }
 	        else{ 
-	        	window.alert("hello");
+				document.getElementById('phoneTooltip').style.display = "none";
 	        }
 		}
 
@@ -317,8 +319,8 @@
 					<select name="town" class="sel" id="townList" disabled>
 					</select><br><br>
 
-					Contact Number<br>	<input type="text" name="orgPhone" pattern="/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/" required>
-					<span id="phoneTooltip">*Must be in form xxx-xxx-xxxx or (xxx)-xxx-xxxx</span>
+					Contact Number<br>	<input type="text" name="orgPhone" onchange="validPhoneNumber(this.value)">
+					<span id="phoneTooltip">*Invalid! Phone number must be 10 digits</span>
 					<p>
 						Please consider the following questions and identify your level of agreement with the statement <br> <br>
 						5. Strongly agree<br>
@@ -505,6 +507,58 @@
 							<li>Customers<input type="checkbox" name="phil2"></li>
 						</ol>
 					</li><br>
+				</ol>
+				
+				<h2>Policy</h2>
+
+				<ol>
+					<li>
+						Does your charging policy account for the varied needs of your customers? E.g. No charge for personal assistants<br><br>
+
+						Yes<input type="radio" name="pol1" required><br>
+						No<input type="radio" name="pol1">
+					</li><br>
+
+					<li>
+						Do you track and monitor the proportion of your club members who experience disabilities?<br><br>
+
+						Yes<input type="radio" name="pol2" required><br>
+						No<input type="radio" name="pol2">
+					</li><br>
+
+					<li>
+						Do you track and monitor the proportion of your club members who experience disabilities?<br><br>
+
+						Yes<input type="radio" name="pol3" required><br>
+						No<input type="radio" name="pol3">
+					</li><br>
+
+					<li>
+						Have you a budget allocated to:
+							<ol type="a">
+								<li>
+									increasing the UniversAbility  of your services? (eg. facilities, equipment and staff training)<br><br>
+
+									Yes<input type="radio" name="pol4" required><br>
+									No<input type="radio" name="pol4"><br>
+									Not needed because  equipment is already fully accessible<input type="radio" name="pol4">
+								</li><br>
+
+								<li>
+									increasing the UniversAbility  of your policies? <br><br>
+
+									Yes<input type="radio" name="pol5" required><br>
+									No<input type="radio" name="pol5">
+								</li><br>
+
+								<li>
+									Are you familiar with the national legislation that relates to disability service provision?<br><br> 
+
+									Yes<input type="radio" name="pol6" required><br>
+									No<input type="radio" name="pol6">
+								</li><br>
+							</ol>
+					</li>
 				</ol>
 
 				<h2>Processes</h2>
@@ -738,10 +792,13 @@
 							No<input type="radio" name="prom2">					
 					</li>
 				</ol>
-					<div id="but">
-						<button id="nextButton" onclick="calcScore()">Finish!</button>
-					</div>
-			</form>
+					
+				<div id="but">
+					<button id="nextButton" onclick="calcScore()">Finish!</button>
+				</div>	
+					
+			</form>		
+					
 		</div>
 	</div>
 
